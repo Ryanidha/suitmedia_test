@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:suitmedia_test/controllers/palindromeController.dart';
 import 'package:suitmedia_test/views/secondScreen.dart';
 
-
 // ignore: must_be_immutable
 class FirstScreen extends StatelessWidget {
   FirstScreen({super.key});
@@ -105,8 +104,15 @@ class FirstScreen extends StatelessWidget {
                   if (palindromeController.textContoller.value.text.isEmpty &&
                       name.isEmpty) {
                     Get.snackbar('Error', 'Please input name and palindrome',
-                        snackPosition: SnackPosition.BOTTOM,
-                        snackStyle: SnackStyle.FLOATING);
+                        snackPosition: SnackPosition.TOP,
+                        snackStyle: SnackStyle.FLOATING,
+                        messageText: const Text(
+                          'Please input name and palindrome',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16, // Adjust the font size as needed
+                          ),
+                        ));
                     return;
                   } else {
                     Get.to(() => const SecondScreen(), arguments: name);
